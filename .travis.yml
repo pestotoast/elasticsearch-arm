@@ -6,6 +6,6 @@ services:
   - docker
 
 script:
-  - docker build -t pestotoast/elasticsearch-armhf .
+  - docker build -t pestotoast/elasticsearch-armhf:${TRAVISTAG:-latest} .
   - echo "$DOCKER_PASSWORD" | docker login -u pestotoast --password-stdin
-  - docker push pestotoast/elasticsearch-armhf:latest
+  - docker push pestotoast/elasticsearch-armhf:latest:${TRAVISTAG:-latest}

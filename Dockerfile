@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu
+FROM ubuntu
 RUN apt-get update && apt-get install -y wget curl default-jre xz-utils
 RUN wget $(curl https://archlinuxarm.org/packages/armv7h/elasticsearch | grep elasticsearch- |grep -Po '(?<=href=")[^"]*')
 RUN tar -xf *.tar.xz
