@@ -1,4 +1,6 @@
+FROM multiarch/qemu-user-static as qemu
 FROM arm32v7/ubuntu
+COPY --from=qemu /usr/bin/qemu-aarch64-static /usr/bin
 RUN apt-get update && apt-get install -y wget curl default-jre xz-utils
 RUN wget $(curl https://archlinuxarm.org/packages/armv7h/elasticsearch | grep elasticsearch- |grep -Po '(?<=href=")[^"]*')
 RUN tar -xf *.tar.xz
