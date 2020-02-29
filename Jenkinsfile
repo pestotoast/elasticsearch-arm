@@ -14,7 +14,7 @@ node {
     finally {
         deleteDir()
         mail to: 'jenkins@pestotoast.de',
-                subject: "Build ${currentResult} ${currentBuild.fullDisplayName}",
-                body: "Build ${currentResult} at ${env.BUILD_URL} after ${currentBuild.durationString} \r\nBuild variables: ${currentBuild.buildVariables} \r\n Changeset: ${currentBuild.changeSets}"
+                subject: "Build ${currentBuild.currentResult} ${currentBuild.fullDisplayName}",
+                body: "Build ${currentBuild.currentResult} at ${env.BUILD_URL} after ${currentBuild.durationString} \r\nBuild variables: ${currentBuild.buildVariables} \r\n Changeset: ${currentBuild.changeSets}"
     }  
 }
