@@ -18,6 +18,7 @@ ENV ELASTICSEARCH_VERSION=$ELASTICSEARCH_VERSION
 COPY --from=builder /elasticsearch-${ELASTICSEARCH_VERSION} /elasticsearch
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-armhf
 RUN apt-get update && apt-get install -y default-jre
+RUN mkdir -p /var/log/elasticsearch
 EXPOSE 9200
 EXPOSE 9300
 RUN /elasticsearch/bin/elasticsearch-plugin install --batch ingest-attachment
