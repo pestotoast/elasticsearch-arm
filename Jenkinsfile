@@ -7,7 +7,7 @@ node {
     try {
         sh 'printenv'
         checkout scm
-        def image = docker.build("pestotoast/elasticsearch-armhf")
+        def image = docker.build("pestotoast/elasticsearch-armhf", "--build-arg ELASTICSEARCH_VERSION=7.6.0")
         image.push()
         image.push('latest')
     }
